@@ -1,6 +1,6 @@
 const socket = io();
 
-// pegar os parms da url
+// pegar os params da url
 const urlSearch = new URLSearchParams(window.location.search);
 
 const username = urlSearch.get('username');
@@ -14,8 +14,8 @@ usernameDiv.innerHTML = `Olá <strong>${username}</strong> - Você está na sala
 socket.emit("select_room", {
   username,
   room
-}, messages => {
-  messages.forEach(message => createMessage(message));
+}, response => {
+  response.forEach(message => createMessage(message));
 })
 
 document.getElementById("message_input").addEventListener("keypress", (event) => {
