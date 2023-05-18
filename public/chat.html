@@ -1,37 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Socket IO</title>
-  </head>
-  
-  <body>
-   
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Multiroom Chat</title>
+
+  <!-- JQUERY -->
+
+  <!-- bootstrap - link cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- estilo -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="row">
-        <button type="button" class="logout" id="logout">Logout</button>
-        <div id="username"></div>
-        <hr />
+      <div class="navbar-header">
+        <a class="navbar-brand" id="username"></a>
+      </div>
 
-        <div id="chat_content">
-
-          <div class="messages" id="messages"></div>
-
-        </div>
-
-        <input class="form-control" type="text" placeholder="Digite sua mensagem" id="message_input" />
-        <footer>
-        </footer>
-
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <button type="button" class="btn m-btn btn-primary" id="logout">Sair</button>
+          </li>
+        </ul>
       </div>
     </div>
-  </body>
+  </nav>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js" integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <div class="container">
+
+    <div class="row conversa">
+      <div id="messages"></div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <div class="panel-body campo-mensagem">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Digite sua mensagem" id="message_input" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"
+    integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <script src="/socket.io/socket.io.js"></script> -->
   <script src="chat.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js"
+    integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
 </html>

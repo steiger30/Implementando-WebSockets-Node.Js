@@ -7,39 +7,24 @@ io.on("connection", (socket) => {
   socket.on("select_room", (data, callback) => {
     socket.join(data.room);
 
-    const userInRoom = users.find(
-      (user) => user.username == data.username && user.room === data.room
-    );
-
-    if (userInRoom) {
-      userInRoom.socket_id == socket.id;
-    } else {
-      users.push({
-        room: data.room,
-        username: data.username,
-        socket_id: socket.id,
-      });
-    };
-
-    const messagesRoom = getMessagesRoom(data.room);
-
-    callback(messagesRoom)
+    users.push({
+      username: data.username,
+      socket_id: socket.id,
+    });
   });
 
-  socket.on("message", data => {
+  socket.on("message", (data) => {
     const message = {
-      room: data.room,
       username: data.username,
       text: data.message,
       createAt: new Date(),
     };
     messages.push(message);
-    io.to(data.room).emit("message", message);
+    io.emit("message", message);
   });
 });
 
-
 function getMessagesRoom(room) {
-  const messagesRoom = messages.filter(message => message.room === room);
-  return messagesRoom
+  const messagesRoom = messages.filter((message) => message.room === room);
+  return messagesRoom;
 }
